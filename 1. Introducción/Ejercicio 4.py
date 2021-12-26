@@ -5,7 +5,7 @@ print("Programa de detección de numeritos y tal.\n")
 try:
     value = int(input('escriba un número\n'))
 except Exception:
-    print("Entrada no válida.")
+    raise NameError('Entrada no valida')
 val_1000 = math.isclose(value, 1000, abs_tol=499)
 val_2000 = math.isclose(value, 2000, abs_tol=499)
 
