@@ -1,8 +1,9 @@
 #Escribir un programa que pida al usuario un número entero positivo y 
 #muestre por pantalla todos los números impares desde 1 hasta ese número separados por comas.
 
-Entrada_Numerica = int(input('Escriba un número entero positivo: \n'))
+asterisk = int(input("Escriba cuántas filas quiere\n"))
 
-for n in range(1, Entrada_Numerica):
-    if n % 2 is not 0:
-        print(n,",")
+for x in range(asterisk):
+    for y in range (x+1):
+        print("*",end='')
+    print("")
