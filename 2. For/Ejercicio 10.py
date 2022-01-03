@@ -31,7 +31,9 @@ print("Lista original es:" + str(NEVER_GONNA_GIVE_YOU_UP))
 palabra = str(input("¿Qué palabra quiere eliminar?\n"))
 
 for i in range(len(NEVER_GONNA_GIVE_YOU_UP)):
-    NEVER_GONNA_GIVE_YOU_UP.remove(palabra) 
+    # Lo que va a hacer .remove() es eliminar el elemento de la lista.
+    # LO que se busca no es eso, sino quitar la palabra de todos los elementos de la lista en donde esté.
+    NEVER_GONNA_GIVE_YOU_UP.remove(palabra)
 print(NEVER_GONNA_GIVE_YOU_UP)
 
-#ole, qué ejercicio tan puto
+# ole, qué ejercicio tan puto
