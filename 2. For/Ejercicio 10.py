@@ -23,17 +23,18 @@ NEVER_GONNA_GIVE_YOU_UP = [
     "Never gonna let you down", "Never gonna run around and desert you", "Never gonna make you cry",
     "Never gonna say goodbye", "Never gonna tell a lie and hurt you", "Never gonna give you up",
     "Never gonna let you down", "Never gonna run around and desert you", "Never gonna make you cry",
-    "Never gonna say goodbye"]
+    "Never gonna say goodbye"
+]
 
+word_to_remove = input('Ingrese una palabra a eliminar: \n')
 
-print("Lista original es:" + str(NEVER_GONNA_GIVE_YOU_UP))
+new_lyrics_list = []
 
-palabra = str(input("¿Qué palabra quiere eliminar?\n"))
+for text in NEVER_GONNA_GIVE_YOU_UP:
+    if word_to_remove in text:
+        altered_element = text.replace(word_to_remove, '')
+        new_lyrics_list.append(altered_element)
+    else:
+        new_lyrics_list.append(text)
 
-for i in range(len(NEVER_GONNA_GIVE_YOU_UP)):
-    # Lo que va a hacer .remove() es eliminar el elemento de la lista.
-    # LO que se busca no es eso, sino quitar la palabra de todos los elementos de la lista en donde esté.
-    NEVER_GONNA_GIVE_YOU_UP.remove(palabra)
-print(NEVER_GONNA_GIVE_YOU_UP)
-
-# ole, qué ejercicio tan puto
+print(new_lyrics_list)
