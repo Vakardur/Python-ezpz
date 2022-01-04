@@ -20,12 +20,13 @@ class Carro:
         return 'Estoy girando'
 
     # Constructor
-    def __init__(self, color, kms, price, velocidad):
+    def __init__(self, color, kms, price):
         self.color = color
         self.kms = kms
         self.price = price
-        self.velocidad = velocidad
 
 
-blue_car = Carro("azul", 100, 20000, 0)
+blue_car = Carro("azul", 100, 20000)
+print(blue_car.velocidad)
 print(blue_car.acelerar())
+print(blue_car.velocidad)
