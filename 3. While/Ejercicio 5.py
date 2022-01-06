@@ -12,7 +12,15 @@ lista = {str(k): random.randrange(1, 1000) for k in range(100)}
 euler = 0.5772156649
 pi = 3.14159
 
-for x in lista[]:
-    print(x)
+lista_pares = []
+lista_impares = []
 
+for x in lista:
+    if x.isdigit(euler) and x % 2 == 0:
+        lista_pares.append(x)
+        print(lista_pares)
+    elif x.isdigit and x % 2 != 0:
+        lista_impares.append(x)
+        print(lista_impares)
+        print(lista_impares)
 #i am in pain.
