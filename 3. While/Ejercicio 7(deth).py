@@ -31,8 +31,9 @@ class Twingo:
 
     # Métodos
     def acelerar(self):
-        value = random.randrange(1,21,1)
-        return value
+        v_accel = random.randrange(1,21,1)
+        self.velocidad += v_accel
+        return v_accel
 
     def __init__(self, nickname, velocidad, posición, degradación):
         self.nickname = nickname
@@ -49,21 +50,44 @@ Twingo3 = Twingo("Twingo86",0,0,0)
 print("Twingódromo de Gachancipá.\n")
 print("Los competidores de hoy son",Twingo1.nickname, ",", Twingo2.nickname, "y", Twingo3.nickname)
 
-tiempo = 60
+tiempo = 21
+
+#Race Telemetry
+
 
 for x in range(tiempo):
     aceleración_t1 = Twingo1.acelerar()
     aceleración_t2 = Twingo2.acelerar()
     aceleración_t3 = Twingo3.acelerar()
 
-    vel1 = Twingo1.velocidad()
-    vel2 = Twingo2.velocidad()
-    vel3 = Twingo3.velocidad()
-
+    vel1 = Twingo1.velocidad
+    vel2 = Twingo2.velocidad
+    vel3 = Twingo3.velocidad
+    
     posición1 = aceleración_t1 + vel1
     posición2 = aceleración_t2 + vel2
     posición3 = aceleración_t3 + vel3
+  
+    Deg1 = Twingo1.degradación
+    Deg2 = Twingo2.degradación
+    Deg3 = Twingo3.degradación
 
     
+    #Bache
+    if x % 7 == 0:
+        if vel1 > 40:
+            vel1 / 2
+            Deg1 = Deg1 + 1
+        if vel2 > 40:
+            vel1 / 2
+            Deg2 = Deg2 + 1
+        if vel3 > 40:
+            vel3 / 2
+            Deg3 = Deg3 + 1
 
-    print(posición1)
+    
+    #Race Finish
+print("Race complete!")
+posiciones = [[Twingo1.nickname, Twingo1.posición] for twingo in Twingos]
+
+#I am *this* close, but I just need to know how to do the last printing. AAAAAAAAAAA
