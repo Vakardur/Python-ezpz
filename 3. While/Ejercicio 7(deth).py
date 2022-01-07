@@ -32,7 +32,7 @@ class Twingo:
     # Métodos
     def acelerar(self):
         value = random.randrange(1,21,1)
-        self.posición = self.posición + value
+        return value
 
     def __init__(self, nickname, velocidad, posición, degradación):
         self.nickname = nickname
@@ -40,16 +40,30 @@ class Twingo:
         self.posición = posición
         self.degradación = degradación
 
-Twingo1= Twingo("Twingod",0,0,0)
+Twingo1 = Twingo("Twingod",0,0,0)
 Twingo2 = Twingo("Merchopercho",0,0,0)
-
-print("Twingódromo de Gachancipá.\n")
-print("Los competidores de hoy son",Twingo1.nickname, "vs.", Twingo2.nickname)
-
+Twingo3 = Twingo("Twingo86",0,0,0)
 
 #Piques
-for speed in range(1,100):
-    Twingo1.acelerar()
-    Twingo2.acelerar()
-    print(Twingo1.velocidad)
-    print(Twingo2.velocidad)
+
+print("Twingódromo de Gachancipá.\n")
+print("Los competidores de hoy son",Twingo1.nickname, ",", Twingo2.nickname, "y", Twingo3.nickname)
+
+tiempo = 60
+
+for x in range(tiempo):
+    aceleración_t1 = Twingo1.acelerar()
+    aceleración_t2 = Twingo2.acelerar()
+    aceleración_t3 = Twingo3.acelerar()
+
+    vel1 = Twingo1.velocidad()
+    vel2 = Twingo2.velocidad()
+    vel3 = Twingo3.velocidad()
+
+    posición1 = aceleración_t1 + vel1
+    posición2 = aceleración_t2 + vel2
+    posición3 = aceleración_t3 + vel3
+
+    
+
+    print(posición1)
