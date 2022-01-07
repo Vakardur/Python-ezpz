@@ -51,3 +51,5 @@ print("Los competidores de hoy son",Twingo1.nickname, "vs.", Twingo2.nickname)
 for speed in range(1,100):
     Twingo1.acelerar()
     Twingo2.acelerar()
+    print(Twingo1.velocidad)
+    print(Twingo2.velocidad)
