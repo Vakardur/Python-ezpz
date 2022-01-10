@@ -69,7 +69,7 @@ for racer in racers:
     if racer.pits_arrivals > pitted_car[1]:
         pitted_car = [racer.nickname, racer.pits_arrivals]
 
-print('----------normal way ----------')
+print('----------simple way ----------')
 print('winner', winner)
 print('max_vel', max_vel)
 print('degraded_car', degraded_car)
