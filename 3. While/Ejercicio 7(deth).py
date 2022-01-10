@@ -18,8 +18,15 @@ e. Al final del loop, cada Twingo tendrá su propio valor de velocidad, y su pro
     i. Imprima qué carro ganó. Es decir, el carro con mayor distancia.
     ii. Imprima qué carro iba más rápido al final (valor máximo de aceleración)
     iii. Imprima qué carro tuvo que frenar más veces para evitar dañar sus amortiguadores.
+
+g. TRABAJO ADICIONAL POR JUGARLE AL VERGAS: cuando un Twingo tenga una degradación que sea múltiplo de 4, deberá 
+ingresar a los pits a que les cambien las llantas. Debe haber un nuevo atributo llamado pits_arrivals, que cuente cuántas veces esto ocurra.
+Tenga en cuenta que cuando un Twingo entre a los pits, no se podrá mover durante dos iteraciones.
+    i. Por ejemplo, si mi Twingo tuvo que frenar y llegó a una degradación de 4 en la iteración 7, entonces ingresará a los pits. 
+    Su atributo pits_arrivals aumentará por uno, y en la iteración 8 y 9 no se podrá mover.
 """
 import random
+import math
 
 class Twingo:
 
@@ -28,66 +35,71 @@ class Twingo:
     velocidad = 0
     posición = 0
     degradación = 0
+    pits_arrivals = 0
+    pits_wait = 0 
 
     # Métodos
     def acelerar(self):
-        v_accel = random.randrange(1,21,1)
-        self.velocidad += v_accel
-        return v_accel
+        v_accel = random.randint(0, 20)
+        if self.velocidad + v_accel > 40:
+            reduced_accel = ((self.velocidad + v_accel) / 2)
+            self.velocidad = math.ceil(reduced_accel)
+            self.degradación += 1
+        else: 
+            self.velocidad += v_accel
+        self.posición += self.velocidad
+        
+        #pits
+        if self.degradación % 4 == 0:
+            self.pits_arrivals += 1
+            self.pits_wait = 2
+    
 
-    def __init__(self, nickname, velocidad, posición, degradación):
+    def __init__(self, nickname):
         self.nickname = nickname
-        self.velocidad = velocidad
-        self.posición = posición
-        self.degradación = degradación
+     
 
-Twingo1 = Twingo("Twingod",0,0,0)
-Twingo2 = Twingo("Merchopercho",0,0,0)
-Twingo3 = Twingo("Twingo86",0,0,0)
+racers = [Twingo("Twingod"), Twingo("Merchopercho"), Twingo("Twingo86")]
 
 #Piques
 
-print("Twingódromo de Gachancipá.\n")
-print("Los competidores de hoy son",Twingo1.nickname, ",", Twingo2.nickname, "y", Twingo3.nickname)
+timer = 0
+time_limit = 20
 
-tiempo = 21
+while timer <= time_limit:
+    for racer in racers:
+        if racer.pits_wait != 0:
+            racer.pits_wait -= 1
+        else:
+            racer.acelerar()  
+    timer += 1
 
-#Race Telemetry
+posiciones = [[racer.nickname, racer.posición] for racer in racers]
+velocidad = [[racer.nickname, racer.velocidad] for racer in racers]
+degradación = [[racer.nickname, racer.degradación] for racer in racers]
 
 
-for x in range(tiempo):
-    aceleración_t1 = Twingo1.acelerar()
-    aceleración_t2 = Twingo2.acelerar()
-    aceleración_t3 = Twingo3.acelerar()
+winner_pos = [] 
+winner_spd = [] 
+winner_deg = [] 
 
-    vel1 = Twingo1.velocidad
-    vel2 = Twingo2.velocidad
-    vel3 = Twingo3.velocidad
-    
-    posición1 = aceleración_t1 + vel1
-    posición2 = aceleración_t2 + vel2
-    posición3 = aceleración_t3 + vel3
-  
-    Deg1 = Twingo1.degradación
-    Deg2 = Twingo2.degradación
-    Deg3 = Twingo3.degradación
+maxpos = 0
+maxspd = 0
+maxdec = 0
 
-    
-    #Bache
-    if x % 7 == 0:
-        if vel1 > 40:
-            vel1 / 2
-            Deg1 = Deg1 + 1
-        if vel2 > 40:
-            vel1 / 2
-            Deg2 = Deg2 + 1
-        if vel3 > 40:
-            vel3 / 2
-            Deg3 = Deg3 + 1
+for place in posiciones:
+    if place[1] > maxpos:
+        maxpos = place[1]
+        winner_pos = place
+for speed in velocidad:
+    if speed[1] > maxspd:
+        maxspd = speed[1]
+        winner_spd = speed
+for decay in degradación:
+    if decay[1] > maxdec:
+        maxdec = decay[1]
+        winner_deg = decay
 
-    
-    #Race Finish
-print("Race complete!")
-posiciones = [[Twingo1.nickname, Twingo1.posición] for twingo in Twingos]
-
-#I am *this* close, but I just need to know how to do the last printing. AAAAAAAAAAA
+print(winner_pos)
+print(winner_spd)
+print(winner_deg)
