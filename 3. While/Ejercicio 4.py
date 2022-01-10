@@ -13,15 +13,15 @@ lista_all = []
 #Valores enteros
 for x in range(1,11):
     x = random.randrange(1,11)
-    lista_all.append(x)
+    lista_all.append(type(x))
 #Valores booleanos
 for x in range(1,11):
     x = random.choice([True, False])
-    lista_all.append(x)
+    lista_all.append(type(x))
 #Valores decimales (float)
 for x in range(1,11):
     x = round(random.random(),2)
-    lista_all.append(x)
+    lista_all.append(type(x))
 
 print("Esta lista fue realizada con for:")
 print(lista_all, sep=" ")
@@ -37,17 +37,17 @@ count_3 = 0
 # Valores enteros
 while count_1 < 11:
     value_1 = random.randrange(1,11)
-    lista_all_2.append(value_1)
+    lista_all_2.append(type(value_1))
     count_1 = count_1 + 1
 # Valores booleanos  
 while count_2 < 11:
     value_2 = random.choice([True, False])
-    lista_all_2.append(value_2)
+    lista_all_2.append(type(value_2))
     count_2 = count_2 + 1
 # Valores float
 while count_3 < 11:
     value_3 = round(random.random(),2)
-    lista_all_2.append(value_3)
+    lista_all_2.append(type(value_3))
     count_3 = count_3 + 1
 print("Esta lista fue realizada con while:")
 print(lista_all_2, sep=" ")

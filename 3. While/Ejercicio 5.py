@@ -27,6 +27,7 @@ print(lista_impares)
 #while
 lista_2 = {str(k): random.randrange(1, 1000) for k in range(100)}
 lista_valores_2 = list(lista_2.values())
+
 lista_pares_2 = []
 lista_impares_2 = []
 

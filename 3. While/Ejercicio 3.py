@@ -8,8 +8,7 @@ lista = [302, -987, -979, 930, -118, 760, 11, -866, -251, 256, 724, -706, -661, 
 
 for x in lista:
     if x >= 1:
-        numero_positivo = x
-        LISTA_POSITIVOS.append(numero_positivo)
+        LISTA_POSITIVOS.append(x)
     else:
         LISTA_NEGATIVOS.append(x)
 

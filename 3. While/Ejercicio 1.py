@@ -14,5 +14,4 @@ número_2 = int(input("Escriba el segundo número: \n"))
 while número_2 > -1:
     print(número_2)
     número_2 = número_2 - 1
-    if número_2 == -1:
-        break
+   
