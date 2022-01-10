@@ -48,30 +48,38 @@ velocidad = [[racer.nickname, racer.velocidad] for racer in racers]
 degradacion = [[racer.nickname, racer.degradacion] for racer in racers]
 pits_arrivals = [[racer.nickname, racer.pits_arrivals] for racer in racers]
 
+
+winner = ['', 0]
+for racer in racers:
+    if racer.posicion > winner[1]:
+        winner = [racer.nickname, racer.posicion]
+
+max_vel = ['', 0]
+for racer in racers:
+    if racer.velocidad > max_vel[1]:
+        max_vel = [racer.nickname, racer.velocidad]
+
+degraded_car = ['', 0]
+for racer in racers:
+    if racer.degradacion > degraded_car[1]:
+        degraded_car = [racer.nickname, racer.degradacion]
+
+pitted_car = ['', 0]
+for racer in racers:
+    if racer.pits_arrivals > pitted_car[1]:
+        pitted_car = [racer.nickname, racer.pits_arrivals]
+
+print('----------normal way ----------')
+print('winner', winner)
+print('max_vel', max_vel)
+print('degraded_car', degraded_car)
+print('pitted_car', pitted_car)
+
+
 # this is just to speed things up and introduce lambda.
 # ordinarily, one would need to create a list with the values of each
 # and get the max value of each.
-
-# winner = ['', 0]
-# for pos in posiciones:
-#     if pos[1] > winner[1]:
-#         winner = pos
-
-# max_vel = ['', 0]
-# for pos in velocidad:
-#     if pos[1] > max_vel[1]:
-#         max_vel = pos
-
-# degraded_car = ['', 0]
-# for pos in degradacion:
-#     if pos[1] > degraded_car[1]:
-#         degraded_car = pos
-
-# degraded_car = ['', 0]
-# for pos in pits_arrivals:
-#     if pos[1] > degraded_car[1]:
-#         degraded_car = pos
-
+print('\n ---------- lambda way ----------')
 print('ganador: ', max(posiciones, key=lambda x: x[1]))
 print('velocidad max: ', max(velocidad, key=lambda x: x[1]))
 print('carro mas cascado: ', max(degradacion, key=lambda x: x[1]))
