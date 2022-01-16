@@ -3,7 +3,6 @@ otro número aleatorio de 10000. Replique la función utilizando Lambda."""
 
 
 import random
-from typing import Counter
 
 #Función normal
 
