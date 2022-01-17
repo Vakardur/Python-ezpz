@@ -28,11 +28,11 @@ lista = [
 
 def SortDict(list):
     return max((x['model']) for x in lista)
-    
+
 def EvenMod(list):
     l = len(lista)
     for value in range(0,l):
-        if l in lista[1] % 2 == 0:
+        if value in lista[1] % 2 == 0:
             print(value)
 
 
