@@ -16,8 +16,12 @@ def Sort(sublist):
 
 print(Sort(lista))
 
-#Fucking lists, fucking hate lists, all my homies hate lists.
-
 #Lambda
+print('lambda imprime')
 
+print(sorted(lista, key=lambda x: x[1]))
+
+
+
+#Fucking lists, fucking hate lists, all my homies hate lists.
 
