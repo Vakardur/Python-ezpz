@@ -6,10 +6,12 @@ lista = [
      'model': 216, 
      'color': 'Black'
      }, 
+
     {'bisiante': 'Mi Max', 
      'model': 2, 
      'color': 'Gold'
      }, 
+
     {'bisiante': 'Samsung',
      'model': 7, 
      'color': 'Blue'
@@ -25,6 +27,14 @@ lista = [
 #1. 
 
 def SortDict(list):
-    return max(lista[1])
+    return max((x['model']) for x in lista)
     
+def EvenMod(list):
+    l = len(lista)
+    for value in range(0,l):
+        if l in lista[1] % 2 == 0:
+            print(value)
+
+
 print(SortDict(lista))
+print(EvenMod(lista))

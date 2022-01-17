@@ -7,9 +7,14 @@ lista = [ [ 1, 2, '3' ] , [3, 4, '5'], [5, 6, '7'], [7, 8, '9'], [9, 10, 'F'] ]
 #Normal
 def MaxVal(sublist): 
     return max(lista)
+def MinVal(sublist):
+    return min(lista)
     
 print(MaxVal(lista))
+print(MinVal(lista))
+
 
 #Lambda
 
 print('lambda:',max(lista, key=lambda x: x[1]))
+print('lambda:',min(lista, key=lambda x: x[1]))

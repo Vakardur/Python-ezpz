@@ -8,3 +8,11 @@ c. Si alguien de la lista tiene un username que incluya las letras k, u, y b, en
 Si incluyen las letras a, r, y z, entonces les gusta comerse a Guillo.
     i.De las condiciones brindadas, ¿a quiénes les gusta comer pito, pero no el de Guillo?
 """
+import requests
+import json
+
+response = requests.get('http://api.name-fake.com/random/random')
+
+json_response = response.json()
+
+print(json_response)
