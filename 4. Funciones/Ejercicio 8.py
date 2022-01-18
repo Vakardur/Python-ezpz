@@ -29,12 +29,18 @@ lista = [
 def SortDict(list):
     return max((x['model']) for x in lista)
 
-def EvenMod(list):
+print(SortDict(lista))
+
+lamdict = print(max(lista, key= lambda dict: dict['model']))
+
+print(lamdict)
+
+#2
+
+"""def EvenMod(list):
     l = len(lista)
     for value in range(0,l):
         if value in lista[1] % 2 == 0:
             print(value)
 
-
-print(SortDict(lista))
-print(EvenMod(lista))
+print(EvenMod(lista))"""
