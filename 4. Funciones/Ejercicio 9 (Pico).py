@@ -17,7 +17,7 @@ import random
 people_list = []
 
 
-for x in range(0, random.randint(2, 5)):
+for x in range(0, random.randint(2, 15)):
     request = requests.get(
         'http://api.namefake.com/english-united-states/random')
     if request.status_code == 200:
@@ -25,8 +25,6 @@ for x in range(0, random.randint(2, 5)):
         new_list = [response['name'], response['height'],
                     datetime.strptime(response['birth_data'], '%Y-%m-%d')]
         people_list.append(new_list)
-
-print(people_list)
 
 
 def sort_alphabet_lambda():
@@ -46,9 +44,15 @@ def check_pito_eater():
     for item in people_list:
         if item[0].find('k') != -1 or item[0].find('u') != -1 or item[0].find('b') != -1:
             pito_eaters.append(item[0])
+    guillo_eaters = []
+    for item in people_list:
+        if item[0].find('a') != -1 or item[0].find('r') != -1 or item[0].find('z') != -1:
+            guillo_eaters.append(item[0])
+    diff_list = list(set(pito_eaters) - set(guillo_eaters))
+    return diff_list
 
 
-print(sort_alphabet_lambda())
-print(get_height_lambda())
-print(get_compared_dates())
-print(check_pito_eater())
+print('alphabetical order: ', sort_alphabet_lambda())
+print('height between 140 and 170: ', get_height_lambda())
+print('people born between 1980 and 2000: ', get_compared_dates())
+print('people who like pito: ', check_pito_eater())
