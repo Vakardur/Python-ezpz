@@ -13,14 +13,6 @@ import requests
 from datetime import datetime
 import random
 
-# list_size = random.randint(1, 4)
-# lista = []
-# print('This list contains', list_size, 'names.')
-# for name in range(0, list_size):
-#     response = requests.get('http://api.namefake.com/random/random')
-#     json_response = response.json()
-#     lista.append(json_response)
-
 
 people_list = []
 
