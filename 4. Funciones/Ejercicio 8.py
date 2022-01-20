@@ -3,20 +3,20 @@ y replicando cada punto utilizando Lambda,"""
 
 lista = [
     {'bisiante': 'Nokia',
-     'model': 216, 
+     'model': 216,
      'color': 'Black'
-     }, 
+     },
 
-    {'bisiante': 'Mi Max', 
-     'model': 2, 
+    {'bisiante': 'Mi Max',
+     'model': 2,
      'color': 'Gold'
-     }, 
+     },
 
     {'bisiante': 'Samsung',
-     'model': 7, 
+     'model': 7,
      'color': 'Blue'
      }
-     ]
+]
 
 """
 1. Obtenga el registro del diccionario con el modelo más grande.
@@ -24,23 +24,22 @@ lista = [
 """
 
 
-#1. 
+# 1.
 
 def SortDict(list):
     return max((x['model']) for x in lista)
 
+
 print(SortDict(lista))
 
-lamdict = print(max(lista, key= lambda dict: dict['model']))
+
+lamdict = print(max(lista, key=lambda dict: dict['model']))
 
 print(lamdict)
 
-#2
+# 2
 
-"""def EvenMod(list):
-    l = len(lista)
-    for value in range(0,l):
-        if value in lista[1] % 2 == 0:
-            print(value)
+item_dicts = [list(x.values()) for x in lista]
 
-print(EvenMod(lista))"""
+print(item_dicts)
+# pending to finish
