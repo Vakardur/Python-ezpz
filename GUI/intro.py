@@ -9,7 +9,9 @@ Tkinter > JavaScript->React > C++ > Unity
 from tkinter import *
 import tkinter
 import tkinter.font as font
-from turtle import color, width
+from models import Articulo
+
+
 
 
 # Init
@@ -28,20 +30,20 @@ title = Label(root, text="Tiendita de la esquina", background="white")
 title['font'] = arial
 title.pack()
 
+pancito = Articulo('pancito', 200.0, 10)
 def new_entry():
     new_entry = Entry(root, width = 15, background='#f9a9f9')
     new_entry.pack()
 def confirmbutton():
-    newbtn = Button(root, text= 'Confirm', width=100, height=50)
+    newbtn = Button(root, command= pancito.stock , text= 'Confirm')
     newbtn.pack()
-def sale_btn():
-        
 # button
 # command es lo que ejecutará el botón al darle click
+
 pan_img = PhotoImage(file=r'GUI\pan.png')
 pan_btn = pan_img.subsample(10,10)
 SaleButton = Button(root, image= pan_btn,
-                command=lambda x:  width=100, height=50)
+                command=lambda:[new_entry(),confirmbutton()])
 SaleButton['font'] = arial
 
 # entry
