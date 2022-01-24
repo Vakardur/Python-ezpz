@@ -48,14 +48,10 @@ if __name__ == "__main__":
 
 """
 VENDA UN ARTICULO
-
 Ponga un botón con una imagen adentro de un pan. Si le doy click al pan aparece una entrada de texto y un botón de confirmar.
-
 Si le doy click a confirmar, por consola imprima el nuevo stock del artículo.
 Empiece con:
 pancito = Articulo('pancito', 200.0, 10)
-
-
 # if algo:
 #     data_entry.pack()
 """
