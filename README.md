@@ -1,3 +1,15 @@
+`python3 -m pip install virtualenv`
+
+`python -m virtualenv env`
+
+`source env/bin/activate`
+
+# SIEMPRE METERSE AL .ENV
+
+`.\env\Scripts\activate`
+
+`pip install -r requirements.txt`
+
 # Curso
 
 ## Introducción
