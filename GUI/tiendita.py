@@ -7,8 +7,7 @@ Tkinter > JavaScript->React > C++ > Unity
 
 # EN ESTE ARCHIVO SOLO VAN COSAS RELACIONADAS A LA INTERFAZ GRAFICA
 
-from tkinter import *
-import tkinter
+from tkinter import Tk, Label, Entry, Button, PhotoImage, StringVar
 import tkinter.font as font
 from models import Articulo
 
@@ -23,6 +22,7 @@ root.configure(background="white")
 
 # font config
 arial = font.Font(family="Arial", size=20)
+pancitoNumber = StringVar()
 
 # title
 title = Label(root, text="Tiendita de la esquina", background="white")
@@ -33,12 +33,18 @@ pancito = Articulo('pancito', 200.0, 10)
 
 
 def new_entry():
-    new_entry = Entry(root, width=15, background='#f9a9f9')
+    new_entry = Entry(root, width=15, background='#f9a9f9',
+                      textvariable=pancitoNumber)
     new_entry.pack()
 
 
+def reduce_stock():
+    pancito.stock -= int(pancitoNumber.get())
+    print(pancito.stock)
+
+
 def confirmbutton():
-    newbtn = Button(root, command=pancito.stock, text='Confirm')
+    newbtn = Button(root, command=reduce_stock, text='Confirm')
     newbtn.pack()
 # button
 # command es lo que ejecutará el botón al darle click
@@ -47,7 +53,7 @@ def confirmbutton():
 pan_img = PhotoImage(file=r'GUI\pan.png')
 pan_btn = pan_img.subsample(10, 10)
 SaleButton = Button(root, image=pan_btn,
-                    command=lambda: [new_entry(), confirmbutton()])
+                    command=lambda: [new_entry(), confirmbutton()], state=is_shown)
 SaleButton['font'] = arial
 
 # entry
