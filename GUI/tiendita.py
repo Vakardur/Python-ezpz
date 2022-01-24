@@ -53,7 +53,7 @@ def confirmbutton():
 pan_img = PhotoImage(file=r'GUI\pan.png')
 pan_btn = pan_img.subsample(10, 10)
 SaleButton = Button(root, image=pan_btn,
-                    command=lambda: [new_entry(), confirmbutton()], state=is_shown)
+                    command=lambda: [new_entry(), confirmbutton()])
 SaleButton['font'] = arial
 
 # entry
