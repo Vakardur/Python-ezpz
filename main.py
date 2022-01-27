@@ -13,8 +13,12 @@ db = SQLAlchemy(app)
 class Articulo(db.Model):
     article_id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String)
+    # ¿No sería chevere saber cuántos hay?
+    # ¿No sería chevere saber cuánto cuesta?
+
 
 class Venta(db.Model):
     article_id = db.Column(db.Integer, unique=True, nullable=False)
     fecha = db.Column(db.DateTime)
     cantidad = db.Column(db.Float)    
+
