@@ -20,5 +20,4 @@ class Articulo(db.Model):
 class Venta(db.Model):
     article_id = db.Column(db.Integer, unique=True, nullable=False)
     fecha = db.Column(db.DateTime)
-    cantidad = db.Column(db.Float)    
-
+    cantidad = db.Column(db.Float)
