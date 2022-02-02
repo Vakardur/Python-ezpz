@@ -2,8 +2,6 @@
 
 `python -m virtualenv env`
 
-`source env/bin/activate`
-
 # SIEMPRE METERSE AL .ENV
 
 `.\env\Scripts\activate`
