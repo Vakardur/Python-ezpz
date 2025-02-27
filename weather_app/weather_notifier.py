@@ -6,14 +6,15 @@ from plyer import notification
 # Load API Key
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
+URL = os.getenv("URL")
 
-# Set city and API URL
 CITY = "Osaka"
-URL = f"http://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric"
+ICON_PATH = os.path.abspath("weather_app/assets/chibi.ico") 
 
 def get_weather():
     try:
-        response = requests.get(URL)
+        payload = {"q":CITY, "appid":API_KEY, "units":"metric"}
+        response = requests.get(URL,params=payload)
         data = response.json()
 
         if response.status_code == 200:
@@ -23,21 +24,26 @@ def get_weather():
             return f"{CITY}: {weather_desc}, {temp}°C"
         else:
             return "Error fetching weather."
-    except Exception as e:
-        return f"Error: {str(e)}"
+    except requests.ConnectTimeout as e:
+        return f"Timeout Error: {str(e)}"
     
-ICON_PATH = os.path.abspath("weather_app/assets/chibi.ico") 
+    except requests.JSONDecodeError as e:
+        return f"JSON Decode Error: {str(e)}"
+    
+    except requests.RequestException as e:
+        return f"Request Exception Error: {str(e)}"
+    
+    
 
 def send_notification():
     weather_info = get_weather()
-    
-    
+        
     notification.notify(
-        title="Here's your Osaka Weather Update Ayaneta Senpai~nya",
-        message=weather_info,
         app_icon=ICON_PATH,
-        timeout=10 
-    )
-
+        message=weather_info,
+        timeout=10, 
+        title="Here's your Osaka Weather Update Ayaneta Senpai~nya",
+    ) 
+    
 if __name__ == "__main__":
     send_notification()
