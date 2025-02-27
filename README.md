@@ -37,3 +37,9 @@ TODO
 
 ## SWITCH A C++
 TODO
+
+## Weather_App
+1. Create a .env file inside weather_app/
+2. Add the following line
+    WEATHER_API_KEY = your_api_key_here
+3. Run weather_app/weather_notifier.py
